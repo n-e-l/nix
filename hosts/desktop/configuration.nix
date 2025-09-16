@@ -28,6 +28,17 @@
     };
   };
 
+  # Display manager
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "colormix";  # or "doom", "none"
+      bigclock = "en";
+      hide_borders = true;
+      save = true;
+    };
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -74,7 +85,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lauda = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "dialout" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -87,9 +98,16 @@
     git
     neovim
     wget
+    virt-manager
+    looking-glass-client
+    distrobox
   ];
 
   environment.variables.EDITOR = "nvim";
+
+  environment.variables = {
+    PATH = [ "$HOME/.local/bin" ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -100,6 +118,48 @@
   };
 
   security.rtkit.enable = true;
+
+  # Virtualisation
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+    };
+    allowedBridges = [ "virbr0" ];
+  };
+
+  virtualisation.podman.enable = true;
+
+  # Configure libvirt to allow KVMFR device access
+  virtualisation.libvirtd.qemu.verbatimConfig = ''
+    cgroup_device_acl = [
+      "/dev/null", "/dev/full", "/dev/zero",
+      "/dev/random", "/dev/urandom",
+      "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+      "/dev/rtc","/dev/hpet", "/dev/vfio/vfio",
+      "/dev/kvmfr0"
+    ]
+  '';
+
+  # Enable AppArmor if not already enabled
+  security.apparmor = {
+    enable = true;
+    packages = with pkgs; [ apparmor-profiles ];
+  };
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    kvmfr
+  ];
+
+  boot.kernelModules = [ "kvmfr" "ch341" ];
+  boot.extraModprobeConfig = ''
+    options kvmfr static_size_mb=64
+  '';
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="kvmfr", OWNER="lauda", GROUP="kvm", MODE="0660"
+  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

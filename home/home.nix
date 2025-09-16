@@ -41,6 +41,10 @@
     BROWSER = "vivaldi";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -62,11 +66,15 @@
     neofetch
     rofi-wayland
     discord
+    inkscape
     vivaldi
     firefox
     spotify
     jetbrains.rust-rover
     python3
+    zip
+    unzip
+    pavucontrol
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
