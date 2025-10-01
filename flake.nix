@@ -26,14 +26,24 @@
       inherit system;
       modules = modules;
       specialArgs = {
-        inherit home-manager stylix;
       };
      };
+
+    mkUser = modules: home-manager.lib.homeManagerConfiguration {
+      extraSpecialArgs = {
+        inherit home-manager stylix;
+      };
+      modules = modules;
+    };
     
   in {
 
     nixosConfigurations = {
       desktop = mkSystem "x86_64-linux" [ ./hosts/desktop ];
+    };
+
+    homeConfigurations = {
+      lauda-desktop = mkUser [ ./hosts/desktop/config.nix ./users/lauda-desktop.nix ];
     };
   };
 }
