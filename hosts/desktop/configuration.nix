@@ -62,6 +62,9 @@
   # Enable graphics drivers
   hardware.graphics.enable = true;
 
+  # Zsa
+  hardware.keyboard.zsa.enable = true;
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
