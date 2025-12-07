@@ -65,6 +65,9 @@
   # Zsa
   hardware.keyboard.zsa.enable = true;
 
+  # i2c
+  hardware.i2c.enable = true;
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -88,7 +91,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lauda = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "dialout" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "dialout" "i2c" ];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -155,7 +158,7 @@
     kvmfr
   ];
 
-  boot.kernelModules = [ "kvmfr" "ch341" ];
+  boot.kernelModules = [ "kvmfr" "ch341" "i2c-dev" ];
   boot.extraModprobeConfig = ''
     options kvmfr static_size_mb=64
   '';

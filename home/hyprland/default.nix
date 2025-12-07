@@ -41,6 +41,10 @@
 	"$mod, Q, killactive"
         "$mod, D, exec, rofi -show drun"
 
+	# Brightness
+	", XF86MonBrightnessUp, exec, ddcutil -d 1 setvcp 10 + 5; ddcutil -d 2 setvcp 10 + 10"
+    	", XF86MonBrightnessDown, exec, ddcutil setvcp 10 - 5; ddcutil -d 2 setvcp 10 - 10"
+
         # Move focus with mainMod + hjkl
         "$mod, m, movefocus, l"
         "$mod, i, movefocus, r"

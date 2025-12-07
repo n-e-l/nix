@@ -66,6 +66,7 @@
     neofetch
     rofi-wayland
     discord
+    ddcutil
     inkscape
     vivaldi
     firefox
