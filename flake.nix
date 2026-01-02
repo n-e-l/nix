@@ -2,31 +2,37 @@
   description = "Nel's NixOS flake";
 
   inputs = {
-    # NixOS official package source, using the nixos-25.05 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+	nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Home-manager setup
+    nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
+    nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Stylix
-    stylix.url = "github:nix-community/stylix/release-25.05";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { 
+    self,
     nixpkgs, 
+	nixos-apple-silicon,
     home-manager,  
     stylix, 
     ... 
-  }: let
+  }@inputs: let
 
     mkSystem = system: modules: nixpkgs.lib.nixosSystem {
       inherit system;
       modules = modules;
       specialArgs = {
-        inherit home-manager stylix;
+        inherit nixos-apple-silicon home-manager stylix;
       };
      };
     
@@ -34,6 +40,7 @@
 
     nixosConfigurations = {
       desktop = mkSystem "x86_64-linux" [ ./hosts/desktop ];
+      macbook = mkSystem "aarch64-linux" [ ./hosts/macbook ];
     };
   };
 }

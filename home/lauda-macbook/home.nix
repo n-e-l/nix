@@ -121,7 +121,6 @@
     jetbrains.idea-ultimate
     jetbrains.clion
 	dbeaver-bin
-	android-studio
     python3
 	tracy
 	renderdoc
@@ -174,7 +173,7 @@
 
     oh-my-zsh = {
       enable = true;
-      custom = "/etc/nixos/home/zsh/themes";
+      custom = "/etc/nixos/home/lauda-macbook/zsh/themes";
       theme = "blinks-mag";
       plugins = [
         "git"
