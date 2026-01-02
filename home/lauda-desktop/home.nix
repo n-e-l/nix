@@ -3,7 +3,7 @@
 {
 
   imports = [
-    stylix.homeModules.stylix
+    ../modules/stylix.nix
     ./direnv.nix
     ./hyprland
     ./kitty.nix
@@ -14,22 +14,6 @@
 
   # Disable dconf to prevent the service error
   dconf.enable = false;
-
-  # Color scheme
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    targets = {
-      kitty.enable = true;
-      neovim.enable = true;
-    };
-
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
-    };
-  };
 
   home.username = "lauda";
   home.homeDirectory = "/home/lauda";
