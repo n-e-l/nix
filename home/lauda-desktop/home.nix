@@ -7,10 +7,10 @@
     ../modules/neovim
     ../modules/zsh
     ../modules/kitty
+    ../modules/waybar
     ./direnv.nix
     ./hyprland
     ./steam.nix
-    ./waybar
   ];
 
   # Disable dconf to prevent the service error
