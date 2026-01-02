@@ -9,9 +9,8 @@
     ../modules/kitty
     ../modules/waybar
     ../modules/direnv
+    ../modules/helix
     ./hyprland
-	#./steam.nix
-    ./helix.nix
   ];
 
   # Disable dconf to prevent the service error
