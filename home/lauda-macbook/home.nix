@@ -6,10 +6,10 @@
     ../modules/stylix
     ../modules/zsh
     ../modules/neovim
+    ../modules/kitty
     ./direnv.nix
     ./hyprland
 	#./steam.nix
-    ./kitty.nix
     ./helix.nix
     ./waybar
   ];

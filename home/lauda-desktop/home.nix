@@ -6,9 +6,9 @@
     ../modules/stylix
     ../modules/neovim
     ../modules/zsh
+    ../modules/kitty
     ./direnv.nix
     ./hyprland
-    ./kitty.nix
     ./steam.nix
     ./waybar
   ];
