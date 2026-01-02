@@ -8,7 +8,7 @@
     ../modules/zsh
     ../modules/kitty
     ../modules/waybar
-    ./direnv.nix
+    ../modules/direnv
     ./hyprland
     ./steam.nix
   ];

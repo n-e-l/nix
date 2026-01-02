@@ -8,7 +8,7 @@
     ../modules/neovim
     ../modules/kitty
     ../modules/waybar
-    ./direnv.nix
+    ../modules/direnv
     ./hyprland
 	#./steam.nix
     ./helix.nix
