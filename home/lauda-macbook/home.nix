@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ../modules/stylix.nix
+    ../modules/stylix
     ../modules/zsh
     ../modules/neovim
     ./direnv.nix
