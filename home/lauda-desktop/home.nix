@@ -4,10 +4,10 @@
 
   imports = [
     ../modules/stylix.nix
+    ../modules/neovim
     ./direnv.nix
     ./hyprland
     ./kitty.nix
-    ./neovim
     ./steam.nix
     ./waybar
   ];
