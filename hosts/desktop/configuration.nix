@@ -28,16 +28,7 @@
     };
   };
 
-  # Display manager
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      animation = "colormix";  # or "doom", "none"
-      bigclock = "en";
-      hide_borders = true;
-      save = true;
-    };
-  };
+  programs.hyprland.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -67,6 +58,9 @@
 
   # i2c
   hardware.i2c.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
