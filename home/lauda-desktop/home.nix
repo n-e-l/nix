@@ -64,7 +64,7 @@
     ranger
     wget
     neofetch
-    rofi-wayland
+    rofi
     discord
     ddcutil
     inkscape
