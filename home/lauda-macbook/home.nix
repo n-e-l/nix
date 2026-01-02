@@ -4,6 +4,7 @@
 
   imports = [
     ../modules/stylix.nix
+    ../modules/zsh
     ../modules/neovim
     ./direnv.nix
     ./hyprland
@@ -104,7 +105,6 @@
     python3
 	tracy
 	renderdoc
-	fzf
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -145,26 +145,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # Software configuration
-
-  programs.zsh = {
-    enable = true;
-
-    oh-my-zsh = {
-      enable = true;
-      custom = "/etc/nixos/home/lauda-macbook/zsh/themes";
-      theme = "blinks-mag";
-      plugins = [
-        "git"
-		"fzf"
-		"sudo"
-		"docker"
-      ];
-    };
-
-    syntaxHighlighting.enable = true;
-  };
 
   xdg.portal = {
     enable = true;

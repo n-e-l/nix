@@ -5,6 +5,7 @@
   imports = [
     ../modules/stylix.nix
     ../modules/neovim
+    ../modules/zsh
     ./direnv.nix
     ./hyprland
     ./kitty.nix
@@ -100,25 +101,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # Software configuration
-
-  programs.zsh = {
-    enable = true;
-
-    oh-my-zsh = {
-      enable = true;
-      custom = "/etc/nixos/home/lauda-desktop/zsh/themes";
-      theme = "blinks-mag";
-      plugins = [
-        "git"
-	"sudo"
-	"docker"
-      ];
-    };
-
-    syntaxHighlighting.enable = true;
-  };
 
   xdg.portal = {
     enable = true;
