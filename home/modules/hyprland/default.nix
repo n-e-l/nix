@@ -15,6 +15,18 @@
 	  default = [];
 	  description = "Workspace assignment for monitors";
 	};
+
+	kb_layout = lib.mkOption {
+	  type = lib.types.str;
+	  default = "us";
+	  description = "Keyboard layout";
+	};
+
+	kb_options = lib.mkOption {
+	  type = lib.types.str;
+	  default = "";
+	  description = "Keyboard options";
+	};
   };
 
   config = lib.mkIf config.nelHyprland.enable {
@@ -156,8 +168,8 @@
       	    tap-to-click = false;
       	  };
 
-          kb_layout = "dh";
-      	  kb_options = "caps:super,altwin:ctrl_win";
+          kb_layout = config.nelHyprland.kb_layout;
+      	  kb_options = config.nelHyprland.kb_options; 
           follow_mouse = 0;
         };
       };

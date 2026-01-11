@@ -58,6 +58,9 @@
       "9, monitor:eDP-1"
       "10, monitor:eDP-1"
 	];
+
+	kb_layout = "dh";
+	kb_options = "caps:super,altwin:ctrl_win";
   };
 
   programs.distrobox = {
