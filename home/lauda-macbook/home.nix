@@ -10,7 +10,7 @@
     ../modules/waybar
     ../modules/direnv
     ../modules/helix
-    ./hyprland
+    ../modules/hyprland
   ];
 
   # Disable dconf to prevent the service error
@@ -36,6 +36,28 @@
       "x-scheme-handler/http" = "vivaldi-stable.desktop";
       "x-scheme-handler/https" = "vivaldi-stable.desktop";
     };
+  };
+
+  nelHyprland = {
+    enable = true;
+	monitors = [
+	  "HDMI-A-1,3456x2160@165,0x0,1.875"
+      "eDP-1,3456x2160@165,2048x0,1.8"
+	];
+
+	workspaces = [
+	  "1, monitor:HDMI-A-1"
+      "2, monitor:HDMI-A-1"
+      "3, monitor:HDMI-A-1"
+      "4, monitor:HDMI-A-1"
+      "5, monitor:HDMI-A-1"
+
+      "6, monitor:eDP-1"
+      "7, monitor:eDP-1"
+      "8, monitor:eDP-1"
+      "9, monitor:eDP-1"
+      "10, monitor:eDP-1"
+	];
   };
 
   programs.distrobox = {
