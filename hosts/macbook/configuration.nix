@@ -169,6 +169,8 @@
     wget
     pavucontrol
     qemu
+  ] ++ [
+    inputs.globalprotect-openconnect.packages.${pkgs.system}.default
   ];
 
   # List packages installed in system profile.

@@ -17,6 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    globalprotect-openconnect.url = "github:yuezk/GlobalProtect-openconnect";
   };
 
   outputs = { 
@@ -33,6 +34,7 @@
       modules = modules;
       specialArgs = {
         inherit nixos-apple-silicon home-manager stylix;
+		inherit inputs;
       };
      };
     

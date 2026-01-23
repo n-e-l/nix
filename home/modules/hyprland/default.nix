@@ -66,24 +66,21 @@
 
         workspace = config.nelHyprland.workspaces ++ [
           # Smart gaps / No gaps when only one window
-          "w[t1], gapsout:0, gapsin:0"    # Workspaces with only 1 tiled window
-          "w[tg1], gapsout:0, gapsin:0"   # Workspaces with only 1 tiled window in group
+          "w[tv1], gapsout:0, gapsin:0"   # Workspaces with only 1 tiled window in group
           "f[1], gapsout:0, gapsin:0"     # Workspaces with only 1 window (tiled or floating)
         ];
       
-        windowrulev2 = [
+        windowrule = [
           # Remove borders and rounding for single tiled windows
-          "bordersize 0, floating:0, onworkspace:w[t1]"
-          "rounding 0, floating:0, onworkspace:w[t1]"
-          "bordersize 0, floating:0, onworkspace:w[tg1]"
-          "rounding 0, floating:0, onworkspace:w[tg1]"
-          "bordersize 0, floating:0, onworkspace:f[1]"
-          "rounding 0, floating:0, onworkspace:f[1]"
-  
+          "border_size 0, match:float 0, match:workspace w[tv1]"
+		  "rounding 0, match:float 0, match:workspace w[tv1]"
+		  "border_size 0, match:float 0, match:workspace f[1]"
+		  "rounding 0, match:float 0, match:workspace f[1]"
+
           # Dropdown
-          "float, class:(dropdown)"
-          "size 80% 60%, class:(dropdown)"
-          "center, class:(dropdown)"
+          "float true, match:class dropdown"
+          "size 80% 60%, match:class dropdown"
+          "center true, match:class dropdown"
         ];
 
         misc = {
