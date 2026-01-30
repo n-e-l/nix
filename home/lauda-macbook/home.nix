@@ -108,6 +108,7 @@
     remmina
     gotop
     waylock
+	obsidian
 	ffmpeg
     tmux
     ranger
@@ -123,7 +124,7 @@
 	p7zip
     firefox
     jetbrains.rust-rover
-    jetbrains.idea-ultimate
+    jetbrains.idea
     jetbrains.clion
 	dbeaver-bin
     python3
