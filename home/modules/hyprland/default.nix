@@ -16,10 +16,10 @@
 	  description = "Workspace assignment for monitors";
 	};
 
-	kb_layout = lib.mkOption {
-	  type = lib.types.str;
-	  default = "us";
-	  description = "Keyboard layout";
+	kb_layouts = lib.mkOption {
+	  type = lib.types.listOf lib.types.str;
+	  default = ["us"];
+	  description = "Keyboard layouts";
 	};
 
 	kb_options = lib.mkOption {
@@ -165,7 +165,7 @@
       	    tap-to-click = false;
       	  };
 
-          kb_layout = config.nelHyprland.kb_layout;
+          kb_layout = config.nelHyprland.kb_layouts;
       	  kb_options = config.nelHyprland.kb_options; 
           follow_mouse = 0;
         };

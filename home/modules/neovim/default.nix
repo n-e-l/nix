@@ -33,6 +33,8 @@
       set softtabstop=4
 	  let mapleader = " "
 
+	  set number
+
 	  " Gitgutter
 	  set updatetime=100
       set signcolumn=yes

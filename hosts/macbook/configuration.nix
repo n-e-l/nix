@@ -57,6 +57,9 @@
     };
   };
 
+  # Zsa
+  hardware.keyboard.zsa.enable = true;
+
   # networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -97,7 +100,6 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "dh";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   services.keyd = {
     enable = true;
@@ -155,7 +157,21 @@
   };
 
   programs.firefox.enable = true;
-  programs.hyprland.enable = true;
+
+  # Uwsm fix
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors.hyprland = {
+      prettyName = "Hyprland";
+      comment    = "Hyprland compositor managed by UWSM";
+      binPath    = "/run/current-system/sw/bin/start-hyprland";
+    };
+  };
+
+  programs.hyprland = {
+    enable = true;
+	withUWSM = true;
+  };
 
   environment.systemPackages = with pkgs; [
     fuse

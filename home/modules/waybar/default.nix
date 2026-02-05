@@ -18,7 +18,7 @@
 
 		modules-left = [ "hyprland/workspaces" "hyprland/mode" ];
 		modules-center = [ "hyprland/window" ];
-		modules-right = [ "cpu" "memory" "battery" "clock" ];
+		modules-right = [ "hyprland/language" "cpu" "memory" "battery" "clock" ];
 
 		"clock" = {
           format = "{:%Y-%m-%d  %H:%M}";
@@ -52,6 +52,13 @@
           tooltip = true;
           tooltip-format = "Memory: {used:0.1f}G used of {total:0.1f}G ({percentage}%)\nSwap: {swapUsed:0.1f}G used of {swapTotal:0.1f}G ({swapPercentage}%)";
           interval = 2;
+        };
+
+		"hyprland/language" = {
+          format = "{}";
+          format-en = "EN";
+          format-dh = "dh";
+          on-click = "hyprctl switchxkblayout at-translated-set-2-keyboard next";
         };
       };
     };

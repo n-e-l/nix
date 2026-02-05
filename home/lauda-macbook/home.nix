@@ -59,7 +59,7 @@
       "10, monitor:eDP-1"
 	];
 
-	kb_layout = "dh";
+	kb_layouts = ["dh"];
 	kb_options = "caps:super,altwin:ctrl_win";
   };
 
