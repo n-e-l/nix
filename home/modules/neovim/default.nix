@@ -75,6 +75,28 @@
       end
     })
 
+    -- Completion setup
+    local cmp = require('cmp')
+    cmp.setup({
+      completion = {
+        autocomplete = { cmp.TriggerEvent.TextChanged },
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>']     = cmp.mapping.abort(),
+        ['<CR>']      = cmp.mapping.confirm({ select = true }),
+        ['<Tab>']     = cmp.mapping.select_next_item(),
+        ['<S-Tab>']   = cmp.mapping.select_prev_item(),
+      }),
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+      }, {
+        { name = 'buffer' },
+        { name = 'path' },
+      }),
+      snippet = { expand = function() end },
+    })
+
     -- Telescope setup
     require('telescope').setup({
 	  defaults = {
