@@ -25,6 +25,9 @@
 	  telescope-nvim
       telescope-fzf-native-nvim
 	  plenary-nvim
+
+	  # Keymap popup
+	  which-key-nvim
     ];
 
     extraConfig = ''
@@ -56,12 +59,17 @@
     -- Load fzf extension
     require('telescope').load_extension('fzf')
     
-    -- Keybindings
+    -- Helix-style space-mode keybindings
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Search in files' })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
-    vim.keymap.set('n', '<leader><space>', builtin.find_files, { desc = 'Find files' })
+	local map = function(key, cmd, desc)
+      vim.keymap.set("n", key, cmd, { desc = desc, noremap = true, silent = false })
+    end
+	map("<space>f",  builtin.find_files,           "file picker")
+	map('<leader>ff', builtin.find_files, 'Find files')
+    map('<leader>fg', builtin.live_grep, 'Search in files')
+    map('<leader>fb', builtin.buffers, 'Find buffers')
+    map('<leader><space>', builtin.find_files, 'Find files')
+
   '';
   };
 }
