@@ -23,6 +23,7 @@
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
+	  cmp-nvim-lsp-signature-help
       nvim-treesitter.withAllGrammars
 	  vim-gitgutter
 
@@ -53,6 +54,8 @@
   extraLuaConfig = ''
     -- LSP setup
     local caps = require('cmp_nvim_lsp').default_capabilities()
+	-- prefer markdown
+	caps.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
     
     for _, s in ipairs({ 'ts_ls', 'rust_analyzer', 'pyright' }) do
       vim.lsp.config(s, { capabilities = caps })
@@ -90,6 +93,7 @@
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+		{ name = 'nvim_lsp_signature_help' },  -- add this
       }, {
         { name = 'buffer' },
         { name = 'path' },

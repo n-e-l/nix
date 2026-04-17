@@ -46,6 +46,12 @@
   boot.kernelParams = [
   ];
 
+  boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
+  boot.kernel.sysctl."kernel.kptr_restrict" = 0;
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+  '';
+
   # Display manager
   services.displayManager.ly = {
     enable = true;
@@ -69,6 +75,11 @@
       networkmanager-openvpn
     ];
   };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -144,12 +155,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/lauda/.nix/";
+  };
+
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.lauda = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "dialout" "audio" "input" ];
+    extraGroups = [ "wheel" "docker" "dialout" "audio" "input" "wireshark" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
@@ -157,6 +173,9 @@
   };
 
   programs.firefox.enable = true;
+
+  programs.wireshark.enable = true;
+  programs.wireshark.package = pkgs.wireshark; # or pkgs.wireshark-cli
 
   # Uwsm fix
   programs.uwsm = {
@@ -185,6 +204,7 @@
     wget
     pavucontrol
     qemu
+	perf
   ] ++ [
     inputs.globalprotect-openconnect.packages.${pkgs.system}.default
   ];

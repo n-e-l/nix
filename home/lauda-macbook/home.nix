@@ -4,6 +4,7 @@
 
   imports = [
     ../modules/stylix
+    ../modules/dunst
     ../modules/zsh
     ../modules/neovim
     ../modules/kitty
@@ -90,10 +91,10 @@
 	jq
 	qbittorrent
     git
+	git-lfs
     vivaldi
 	vivaldi-ffmpeg-codecs
 	widevine-cdm
-	blender
     ncdu
     vim
     zip
@@ -102,6 +103,7 @@
 	krita
     xdg-utils
     tigervnc
+	feh
 	rclone
 	zathura
 	picard
@@ -117,7 +119,6 @@
     wl-clipboard
     wget
 	nicotine-plus
-    neofetch
 	hdrop
     rofi
     widevine-cdm

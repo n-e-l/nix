@@ -48,7 +48,6 @@
     gotop
     ranger
     wget
-    neofetch
     rofi
     discord
     ddcutil
