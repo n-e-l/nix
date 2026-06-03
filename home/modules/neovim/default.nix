@@ -6,7 +6,7 @@
 	fd
 
 	# LSP servers
-	nodePackages.typescript-language-server
+	typescript-language-server
 	rust-analyzer
 	pyright
   ];

@@ -63,6 +63,16 @@
     };
   };
 
+  # Printer
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  services.printing = {
+    enable = true;
+  };
+
   # Zsa
   hardware.keyboard.zsa.enable = true;
 
@@ -200,6 +210,10 @@
     pamixer
     git
     neovim
+    (vivaldi.override {
+      proprietaryCodecs = true;
+      enableWidevine = true;
+    })
     openvpn
     wget
     pavucontrol

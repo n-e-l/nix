@@ -92,8 +92,7 @@
 	qbittorrent
     git
 	git-lfs
-    vivaldi
-	vivaldi-ffmpeg-codecs
+	vivaldi
 	widevine-cdm
     ncdu
     vim
@@ -107,9 +106,9 @@
 	rclone
 	zathura
 	picard
+	hyprpicker
     remmina
     gotop
-    waylock
 	obsidian
 	ffmpeg
     tmux
@@ -120,6 +119,7 @@
     wget
 	nicotine-plus
 	hdrop
+	electrum
     rofi
     widevine-cdm
 	p7zip

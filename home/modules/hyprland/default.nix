@@ -98,6 +98,7 @@
           "$mod, D, exec, rofi -show drun"
       	  "$mod, P, exec, grim -g \"$(slurp)\" - | wl-copy"
       	  "$mod, U, exec, hdrop kitty --class dropdown"
+      	  "$mod, J, exec, hyprpicker -a"
 
       	  # Toggle floating
       	  "$mod, s, togglefloating"
