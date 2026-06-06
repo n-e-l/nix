@@ -39,7 +39,7 @@
       settings = {
 
         env = [
-          "GDK_SCALE,2"
+          "GDK_SCALE,1"
         ];
 
         xwayland = {

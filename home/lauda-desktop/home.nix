@@ -81,6 +81,9 @@
       "9, monitor:HDMI-A-1"
       "10, monitor:HDMI-A-1"
 	];
+
+	kb_layouts = [ "us" ];
+	kb_options = "caps:super";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -49,6 +49,14 @@
     # keyMap = "us";
     useXkbConfig = true; # use xkb.options in tty.
   };
+  
+  services.xserver.xkb.extraLayouts.dh = {
+    description = "Colemak-DH ergo";
+    languages = ["eng"];
+    symbolsFile = symbols/colemak_dh;
+  };
+
+  services.xserver.xkb.layout = "us";
 
   # Enable graphics drivers
   hardware.graphics.enable = true;
