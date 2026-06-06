@@ -88,6 +88,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/lauda/.nix/";
+  };
+
+
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
