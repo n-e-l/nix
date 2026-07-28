@@ -92,7 +92,6 @@
 	qbittorrent
     git
 	git-lfs
-	vivaldi
 	widevine-cdm
     ncdu
     vim
